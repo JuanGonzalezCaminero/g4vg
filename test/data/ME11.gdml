@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define/>
+
+  <materials>
+    <material name="Air">
+      <D value="0.0001"/>
+      <fraction n="0.7" ref="Nitrogen"/>
+      <fraction n="0.3" ref="Oxygen"/>
+    </material>
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="ME11SupportDisk0x5591213c0290" rmax="2455" rmin="860" startphi="0" z="80"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME_FR4Skin_1_ME11Layer0x5591213c0430" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="0.8" y2="0.8" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME_FR4Skin_2_ME11Layer0x5591213c0660" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="0.8" y2="0.8" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="MECU_1_ME11Layer0x5591213c08b0" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="0.02" y2="0.02" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="MECU_2_ME11Layer0x5591213c0b00" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="0.02" y2="0.02" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME1A_ActiveGasVol0x5591213c0d50" phi="0" theta="0" x1="187" x2="187" x3="267.3" x4="267.3" y1="7" y2="7" z="431.2"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME11_ActiveGasVol0x5591213c0fa0" phi="0" theta="0" x1="267.3" x2="267.3" x3="466.2" x4="466.2" y1="7" y2="7" z="1056.2"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME11Layer0x5591213c1210" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="22" y2="22" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME11PolycarbPanel0x5591213c1460" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="145.4" y2="145.4" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME11FR4Body0x5591213c1690" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="147" y2="147" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME11AlumFrame0x5591213c18c0" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="147" y2="147" z="1620"/>
+    <trap alpha1="0" alpha2="0" aunit="deg" lunit="mm" name="ME110x5591213c1b30" phi="0" theta="0" x1="301.3" x2="301.3" x3="609" x4="609" y1="183" y2="183" z="1620"/>
+    <tube aunit="deg" deltaphi="20" lunit="mm" name="ME11SpaceDivision0x5591213c1d80" rmax="2725" rmin="990" startphi="-9.99999999999999" z="183"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="ME11Space0x5591213c1f50" rmax="2725" rmin="990" startphi="0" z="183"/>
+    <polycone aunit="deg" deltaphi="360" lunit="mm" name="ME1Ring0x5591213c3f30" startphi="0">
+      <zplane rmax="2800" rmin="1150" z="5641"/>
+      <zplane rmax="2800" rmin="1150" z="5674"/>
+      <zplane rmax="2800" rmin="850" z="5674"/>
+      <zplane rmax="2800" rmin="850" z="6345"/>
+    </polycone>
+  </solids>
+
+  <structure>
+    <volume name="ME11SupportDisk0x559121c93170">
+      <materialref ref="Air"/>
+      <solidref ref="ME11SupportDisk0x5591213c0290"/>
+    </volume>
+    <volume name="ME_FR4Skin_1_ME11Layer_refl0x559121d03200">
+      <materialref ref="Air"/>
+      <solidref ref="ME_FR4Skin_1_ME11Layer0x5591213c0430"/>
+    </volume>
+    <volume name="ME_FR4Skin_2_ME11Layer_refl0x559121d03580">
+      <materialref ref="Air"/>
+      <solidref ref="ME_FR4Skin_2_ME11Layer0x5591213c0660"/>
+    </volume>
+    <volume name="MECU_1_ME11Layer_refl0x559121d03920">
+      <materialref ref="Air"/>
+      <solidref ref="MECU_1_ME11Layer0x5591213c08b0"/>
+    </volume>
+    <volume name="MECU_2_ME11Layer_refl0x559121d03c60">
+      <materialref ref="Air"/>
+      <solidref ref="MECU_2_ME11Layer0x5591213c0b00"/>
+    </volume>
+    <volume name="ME1A_ActiveGasVol_refl0x559121d04030">
+      <materialref ref="Air"/>
+      <solidref ref="ME1A_ActiveGasVol0x5591213c0d50"/>
+    </volume>
+    <volume name="ME11_ActiveGasVol_refl0x559121d04250">
+      <materialref ref="Air"/>
+      <solidref ref="ME11_ActiveGasVol0x5591213c0fa0"/>
+    </volume>
+    <volume name="ME11Layer_refl0x559121d04430">
+      <materialref ref="Air"/>
+      <solidref ref="ME11Layer0x5591213c1210"/>
+      <physvol copynumber="1" name="ME_FR4Skin_1_ME11Layer0x559121d2c2f0">
+        <volumeref ref="ME_FR4Skin_1_ME11Layer_refl0x559121d03200"/>
+        <position name="ME_FR4Skin_1_ME11Layer0x559121d2c2f0_pos" unit="mm" x="0" y="3.92" z="0"/>
+      </physvol>
+      <physvol copynumber="2" name="ME_FR4Skin_2_ME11Layer0x559121d2c8e0">
+        <volumeref ref="ME_FR4Skin_2_ME11Layer_refl0x559121d03580"/>
+        <position name="ME_FR4Skin_2_ME11Layer0x559121d2c8e0_pos" unit="mm" x="0" y="-3.92" z="0"/>
+      </physvol>
+      <physvol copynumber="1" name="MECU_1_ME11Layer0x559121d2ce90">
+        <volumeref ref="MECU_1_ME11Layer_refl0x559121d03920"/>
+        <position name="MECU_1_ME11Layer0x559121d2ce90_pos" unit="mm" x="0" y="3.51" z="0"/>
+      </physvol>
+      <physvol copynumber="2" name="MECU_2_ME11Layer0x559121d2d450">
+        <volumeref ref="MECU_2_ME11Layer_refl0x559121d03c60"/>
+        <position name="MECU_2_ME11Layer0x559121d2d450_pos" unit="mm" x="0" y="-3.51" z="0"/>
+      </physvol>
+      <physvol copynumber="5401" name="ME1A_ActiveGasVol0x559121d2da00">
+        <volumeref ref="ME1A_ActiveGasVol_refl0x559121d04030"/>
+        <position name="ME1A_ActiveGasVol0x559121d2da00_pos" unit="mm" x="0" y="0" z="-530"/>
+      </physvol>
+      <physvol copynumber="1" name="ME11_ActiveGasVol0x559121d2df80">
+        <volumeref ref="ME11_ActiveGasVol_refl0x559121d04250"/>
+        <position name="ME11_ActiveGasVol0x559121d2df80_pos" unit="mm" x="0" y="0" z="212.5"/>
+      </physvol>
+    </volume>
+    <volume name="ME11PolycarbPanel_refl0x559121d054d0">
+      <materialref ref="Air"/>
+      <solidref ref="ME11PolycarbPanel0x5591213c1460"/>
+      <physvol copynumber="6001" name="ME11Layer0x559121d2e0e0">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e0e0_pos" unit="mm" x="0" y="-56.7014" z="0"/>
+      </physvol>
+      <physvol copynumber="6002" name="ME11Layer0x559121d2e230">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e230_pos" unit="mm" x="0" y="-34.7014" z="0"/>
+      </physvol>
+      <physvol copynumber="6003" name="ME11Layer0x559121d2e3a0">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e3a0_pos" unit="mm" x="0" y="-12.7014" z="0"/>
+      </physvol>
+      <physvol copynumber="6004" name="ME11Layer0x559121d2e520">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e520_pos" unit="mm" x="0" y="9.29859999999999" z="0"/>
+      </physvol>
+      <physvol copynumber="6005" name="ME11Layer0x559121d2e650">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e650_pos" unit="mm" x="0" y="31.2986" z="0"/>
+      </physvol>
+      <physvol copynumber="6006" name="ME11Layer0x559121d2e7a0">
+        <volumeref ref="ME11Layer_refl0x559121d04430"/>
+        <position name="ME11Layer0x559121d2e7a0_pos" unit="mm" x="0" y="53.2986" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="ME11FR4Body_refl0x559121d05e10">
+      <materialref ref="Air"/>
+      <solidref ref="ME11FR4Body0x5591213c1690"/>
+      <physvol copynumber="1" name="ME11PolycarbPanel0x559121d2e8c0">
+        <volumeref ref="ME11PolycarbPanel_refl0x559121d054d0"/>
+      </physvol>
+    </volume>
+    <volume name="ME11AlumFrame_refl0x559121d063b0">
+      <materialref ref="Air"/>
+      <solidref ref="ME11AlumFrame0x5591213c18c0"/>
+      <physvol copynumber="1" name="ME11FR4Body0x559121d2ea30">
+        <volumeref ref="ME11FR4Body_refl0x559121d05e10"/>
+      </physvol>
+    </volume>
+    <volume name="ME11_refl0x559121d06910">
+      <materialref ref="Air"/>
+      <solidref ref="ME110x5591213c1b30"/>
+      <physvol copynumber="5101" name="ME11AlumFrame0x559121d2ebc0">
+        <volumeref ref="ME11AlumFrame_refl0x559121d063b0"/>
+        <position name="ME11AlumFrame0x559121d2ebc0_pos" unit="mm" x="0" y="15" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="ME11SpaceDivision_refl0x559121d06e50">
+      <materialref ref="Air"/>
+      <solidref ref="ME11SpaceDivision0x5591213c1d80"/>
+      <physvol copynumber="1" name="ME110x559121d2ed50">
+        <volumeref ref="ME11_refl0x559121d06910"/>
+        <position name="ME110x559121d2ed50_pos" unit="mm" x="1815" y="0" z="0"/>
+        <rotation name="ME110x559121d2ed50_rot" unit="deg" x="-90" y="-90" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="ME11Space_refl0x559121d07340">
+      <materialref ref="Air"/>
+      <solidref ref="ME11Space0x5591213c1f50"/>
+      <physvol copynumber="4001" name="ME11SpaceDivision0x559121d2eec0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+      </physvol>
+      <physvol copynumber="4002" name="ME11SpaceDivision0x559121d2f050">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f050_rot" unit="deg" x="0" y="0" z="-20"/>
+      </physvol>
+      <physvol copynumber="4003" name="ME11SpaceDivision0x559121d2f230">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f230_rot" unit="deg" x="0" y="0" z="-40"/>
+      </physvol>
+      <physvol copynumber="4004" name="ME11SpaceDivision0x559121d2f420">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f420_rot" unit="deg" x="0" y="0" z="-60"/>
+      </physvol>
+      <physvol copynumber="4005" name="ME11SpaceDivision0x559121d2f5c0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f5c0_rot" unit="deg" x="0" y="0" z="-80"/>
+      </physvol>
+      <physvol copynumber="4006" name="ME11SpaceDivision0x559121d2f7d0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f7d0_rot" unit="deg" x="0" y="0" z="-100"/>
+      </physvol>
+      <physvol copynumber="4007" name="ME11SpaceDivision0x559121d2f960">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2f960_rot" unit="deg" x="0" y="0" z="-120"/>
+      </physvol>
+      <physvol copynumber="4008" name="ME11SpaceDivision0x559121d2fb20">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2fb20_rot" unit="deg" x="0" y="0" z="-140"/>
+      </physvol>
+      <physvol copynumber="4009" name="ME11SpaceDivision0x559121d2fce0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2fce0_rot" unit="deg" x="0" y="0" z="-160"/>
+      </physvol>
+      <physvol copynumber="4010" name="ME11SpaceDivision0x559121d2fea0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d2fea0_rot" unit="deg" x="0" y="0" z="-180"/>
+      </physvol>
+      <physvol copynumber="4011" name="ME11SpaceDivision0x559121d30010">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30010_rot" unit="deg" x="0" y="0" z="160"/>
+      </physvol>
+      <physvol copynumber="4012" name="ME11SpaceDivision0x559121d301d0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d301d0_rot" unit="deg" x="0" y="0" z="140"/>
+      </physvol>
+      <physvol copynumber="4013" name="ME11SpaceDivision0x559121d30390">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30390_rot" unit="deg" x="0" y="0" z="120"/>
+      </physvol>
+      <physvol copynumber="4014" name="ME11SpaceDivision0x559121d30550">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30550_rot" unit="deg" x="0" y="0" z="100"/>
+      </physvol>
+      <physvol copynumber="4015" name="ME11SpaceDivision0x559121d30710">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30710_rot" unit="deg" x="0" y="0" z="80"/>
+      </physvol>
+      <physvol copynumber="4016" name="ME11SpaceDivision0x559121d308d0">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d308d0_rot" unit="deg" x="0" y="0" z="60"/>
+      </physvol>
+      <physvol copynumber="4017" name="ME11SpaceDivision0x559121d30a90">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30a90_rot" unit="deg" x="0" y="0" z="40"/>
+      </physvol>
+      <physvol copynumber="4018" name="ME11SpaceDivision0x559121d30c50">
+        <volumeref ref="ME11SpaceDivision_refl0x559121d06e50"/>
+        <rotation name="ME11SpaceDivision0x559121d30c50_rot" unit="deg" x="0" y="0" z="20"/>
+      </physvol>
+    </volume>
+    <volume name="ME1RingN0x559121d29d10">
+      <materialref ref="Air"/>
+      <solidref ref="ME1Ring0x5591213c3f30"/>
+      <physvol copynumber="1" name="ME11SupportDisk0x559121d2a140">
+        <volumeref ref="ME11SupportDisk0x559121c93170"/>
+        <position name="ME11SupportDisk0x559121d2a140_pos" unit="mm" x="0" y="0" z="6023"/>
+      </physvol>
+      <physvol copynumber="3001" name="ME11Space0x559121d2a230">
+        <volumeref ref="ME11Space_refl0x559121d07340"/>
+        <position name="ME11Space0x559121d2a230_pos" unit="mm" x="0" y="0" z="6154.5"/>
+        <rotation name="ME11Space0x559121d2a230_rot" unit="deg" x="180" y="0" z="180"/>
+        <scale name="ME11Space0x559121d2a230_scl" x="1" y="1" z="-1"/>
+      </physvol>
+      <physvol copynumber="3002" name="ME11Space0x559121d310b0">
+        <volumeref ref="ME11Space_refl0x559121d07340"/>
+        <position name="ME11Space0x559121d310b0_pos" unit="mm" x="0" y="0" z="5861.5"/>
+        <rotation name="ME11Space0x559121d310b0_rot" unit="deg" x="180" y="0" z="170"/>
+        <scale name="ME11Space0x559121d310b0_scl" x="1" y="1" z="-1"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="ME1RingN0x559121d29d10"/>
+  </setup>
+
+</gdml>

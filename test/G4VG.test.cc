@@ -12,6 +12,8 @@
 #include <VecGeom/volumes/UnplacedVolume.h>
 #include <gtest/gtest.h>
 
+#include "G4Material.hh"
+#include "G4RunManager.hh"
 #include "g4vg_test_config.h"
 
 using VGLV = vecgeom::LogicalVolume;
@@ -31,10 +33,15 @@ class G4VGTestBase : public ::testing::Test
     void TearDown() override;
 
     G4VPhysicalVolume const* g4world() const { return world_; }
+    void MapVgToG4(G4VPhysicalVolume const* g4world,
+                   std::vector<G4VPhysicalVolume const*>& VgToG4Map);
 
   private:
     G4VPhysicalVolume* world_{nullptr};
+    static std::string loaded_basename;
 };
+
+std::string G4VGTestBase::loaded_basename;
 
 //---------------------------------------------------------------------------//
 /*!
@@ -43,7 +50,6 @@ class G4VGTestBase : public ::testing::Test
 void G4VGTestBase::SetUp()
 {
     // Guard against loading multiple geometry in the same run
-    static std::string loaded_basename{};
     std::string this_basename = this->basename();
 
     if (!loaded_basename.empty())
@@ -83,6 +89,38 @@ void G4VGTestBase::SetUp()
 void G4VGTestBase::TearDown()
 {
     vecgeom::GeoManager::Instance().Clear();
+    G4RunManager::GetRunManager()->ReinitializeGeometry();
+    G4Material::GetMaterialTable()->clear();
+    loaded_basename.clear();
+}
+
+void G4VGTestBase::MapVgToG4(G4VPhysicalVolume const* g4_world,
+                             std::vector<G4VPhysicalVolume const*>& vg_g4_map)
+{
+    vecgeom::VPlacedVolume const* vecgeom_world
+        = vecgeom::GeoManager::Instance().GetWorld();
+
+    typedef std::function<void(G4VPhysicalVolume const*,
+                               vecgeom::VPlacedVolume const*)>
+        func_t;
+    func_t visitGeometry = [&](G4VPhysicalVolume const* g4_pvol,
+                               vecgeom::VPlacedVolume const* vg_pvol) {
+        auto const g4_lvol = g4_pvol->GetLogicalVolume();
+        auto const vg_lvol = vg_pvol->GetLogicalVolume();
+
+        vg_g4_map.resize(
+            std::max<std::size_t>(vg_g4_map.size(), vg_pvol->id() + 1),
+            nullptr);
+        vg_g4_map[vg_pvol->id()] = g4_pvol;
+
+        for (size_t id = 0; id < g4_lvol->GetNoDaughters(); ++id)
+        {
+            auto g4pvol_d = g4_lvol->GetDaughter(id);
+            auto pvol_d = vg_lvol->GetDaughters()[id];
+            visitGeometry(g4pvol_d, pvol_d);
+        }
+    };
+    visitGeometry(g4_world, vecgeom_world);
 }
 
 //---------------------------------------------------------------------------//
@@ -212,6 +250,32 @@ TEST_F(SolidsTest, default_options)
         "World_PV",
     };
     EXPECT_EQ(expected_g4pv_names, ordered_g4_names);
+}
+
+class ComplexGeometryTest : public G4VGTestBase
+{
+  protected:
+    std::string basename() const override { return "ME11"; }
+};
+
+TEST_F(ComplexGeometryTest, validate_complex_geometry)
+{
+    auto converted = g4vg::convert(this->g4world());
+    ASSERT_TRUE(converted.world);
+
+    // Set world in VecGeom manager
+    auto& vg_manager = vecgeom::GeoManager::Instance();
+    vg_manager.RegisterPlacedVolume(converted.world);
+    vg_manager.SetWorldAndClose(converted.world);
+
+    // Check the VecGeom to Geant4 mapping against a map constructed from the
+    // final geometry
+    std::vector<G4VPhysicalVolume const*> vg_g4_map;
+    MapVgToG4(this->g4world(), vg_g4_map);
+    for (std::size_t i = 0; i < vg_g4_map.size(); ++i)
+    {
+        EXPECT_EQ(converted.physical_volumes[i], vg_g4_map[i]);
+    }
 }
 
 //---------------------------------------------------------------------------//
